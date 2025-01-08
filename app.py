@@ -16,10 +16,10 @@ def home():
 
 @app.route('/predict', methods=['POST'])
 def predict():
-    # Get the input data from the request
-    data = request.json  # Expecting JSON input
 
-    # Example: {"age": 31, "sex": 1, "bmi": 36.3, "children": 2, "smoker": 1}
+    # Get the input data from the request
+    data = request.json
+
     try:
         input_data = [
             data['age'], data['sex'], data['bmi'],
