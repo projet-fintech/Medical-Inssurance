@@ -1,13 +1,12 @@
 pipeline {
     agent any
     tools {
-        python 'Python'  
         dockerTool 'Docker'
     }
     environment {
         AWS_REGION = 'eu-west-3'
         ECR_REGISTRY = '329599629502.dkr.ecr.eu-west-3.amazonaws.com'
-        IMAGE_NAME = "loan-management" 
+        IMAGE_NAME = "medicalinsurance" 
     }
     stages {
         stage('Checkout') {
@@ -23,21 +22,24 @@ pipeline {
          stage('Prepare Environment') {
             steps {
                  script {
-                    sh """
-                        pip install -r requirements.txt
-                    """
+                   sh """
+                        python3 -m venv venv
+                        . venv/bin/activate
+                        python3 -m pip install -r requirements.txt
+                   """
                  }
             }
         }
         
-        /*stage('Run Unit Tests') {
-            steps {
-                 script {
-                      // Executer les tests unitaires en python
-                      sh "pytest"
-                }
-             }
-        }*/
+        /* stage('Run Unit Tests') {
+     steps {
+        script {
+           sh """
+              . venv/bin/activate
+              python3 -m pytest
+            """
+         }
+      }*/
         
         stage('Build Docker Image') {
             steps {
