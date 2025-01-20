@@ -5,7 +5,7 @@ pipeline {
     }
     environment {
         AWS_REGION = 'eu-west-3'
-        ECR_REGISTRY = '329599629502.dkr.ecr.eu-west-3.amazonaws.com'
+        ECR_REGISTRY ={ecr_registry}
         IMAGE_NAME = "medicalinsurance" 
     }
     stages {
@@ -31,7 +31,7 @@ pipeline {
             }
         }
         
-        /* stage('Run Unit Tests') {
+        stage('Run Unit Tests') {
      steps {
         script {
            sh """
@@ -39,7 +39,7 @@ pipeline {
               python3 -m pytest
             """
          }
-      }*/
+      }
         
         stage('Build Docker Image') {
             steps {
