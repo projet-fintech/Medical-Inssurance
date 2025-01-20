@@ -70,7 +70,7 @@ The dataset has a shape of `(1338, 7)`.
 </div>
 
 The dataset was already clean, so I did not need to perform additional 
-preprocessing like handling missing values or encoding categorical variables. However, 
+preprocessing like handling missing values . However, 
 the following steps were performed to prepare the data for training 
 the prediction model :
 
