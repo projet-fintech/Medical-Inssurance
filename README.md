@@ -147,7 +147,7 @@ The trained model was evaluated on the testing set (`X_test`, `y_test`) using th
 - **R² Score**: Indicates how well the model explains the variance of the target variable (y).
 
 #### Results:
-- **R² Score**: `Your_R2_Score_Value` : 0.82
+- **R² Score**: 0.82
 
 ### Key Advantages of Bagging
 - Combines multiple weak learners to improve performance.
